@@ -1,0 +1,42 @@
+# Super-Resolution Configuration File
+
+# Model Configuration
+model:
+  type: "espcn"  # Options: espcn, real_esrgan, swinir
+  scale_factor: 3  # Options: 2, 3, 4, 8
+  device: "auto"  # Options: auto, cpu, cuda
+
+# Data Configuration
+data:
+  input_dir: "data/input"
+  output_dir: "data/output"
+  sample_dir: "data/samples"
+  supported_formats: ["jpg", "jpeg", "png", "bmp", "tiff"]
+  max_image_size: 2048  # Maximum dimension for processing
+
+# Processing Configuration
+processing:
+  batch_size: 1
+  save_intermediate: false
+  quality_metrics: true
+  preserve_metadata: true
+
+# Logging Configuration
+logging:
+  level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR
+  file: "logs/super_resolution.log"
+  max_size: "10MB"
+  backup_count: 5
+
+# Web Interface Configuration
+web_app:
+  host: "0.0.0.0"
+  port: 8501
+  debug: false
+  max_file_size: "50MB"
+
+# Advanced Options
+advanced:
+  use_gpu_memory_fraction: 0.8
+  enable_mixed_precision: false
+  cache_models: true
